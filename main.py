@@ -32,7 +32,3 @@ def get_audio(video_id):
         return jsonify({"error": str(e)}), 400
     except Exception as e:
         return jsonify({"error": "An unexpected error occurred", "detail": str(e)}), 500
-
-
-if __name__ == '__main__':
-    app.run()
