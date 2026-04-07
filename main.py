@@ -17,10 +17,12 @@ def health():
 @app.route('/get_audio/<video_id>/')
 def get_audio(video_id):
     URL = f"https://www.youtube.com/watch?v={video_id}"
-    ydl_opts = {
-        'format': 'm4a/bestaudio/best',
-        'quiet': True,
-    }
+    ydl_opts = {                                              
+      'format': 'm4a/bestaudio/best',                                                                                                                                                              
+      'quiet': True,                                        
+      'cookiefile': 'cookies.txt',
+      'noplaylist': True,
+      }    
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(URL, download=False)
